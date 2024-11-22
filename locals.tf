@@ -4,7 +4,7 @@ locals {
   // you need to specify a unique name under a tenant according to the business, which will be used as part of the resource name
   app_id = format("%s-%s", "app", formatdate("hhmm", timestamp()))
 
-  name_suffix = ""
+  name_suffix = "hcl"
 
   // Tags of HUAWEI CLOUD resources. You can add tags to resources to classify resources.
   // for more details, please refer to https://support.huaweicloud.com/usermanual-tms/zh-cn_topic_0056266263.html
