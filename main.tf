@@ -82,11 +82,12 @@ module "ecs" {
 
   user_data = <<-EOF
   #!/bin/bash
+  public_ip=$(curl http://169.254.169.254/latest/meta-data/public-ipv4)
   echo 'root:${var.admin_password}' | chpasswd
-  /home/devops/latest/auto_deploy.sh
+  /home/devops/deploy-script-6.0.2.3/config.sh $public_ip
   userdel -r devops
   rm -rf /home/devops
-  sleep 1m
+  sleep 5m
   echo "***end of ansible playbook deployment***"
   EOF
 }
